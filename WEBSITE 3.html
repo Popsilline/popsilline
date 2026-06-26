@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Divya Krishna B.S — 3D Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#060912;
+  --ink2:#0b1020;
+  --card:#0f1729;
+  --blue:#2563EB;
+  --blue2:#3b82f6;
+  --ice:#93c5fd;
+  --glow:rgba(37,99,235,.16);
+  --text:#e2eaf8;
+  --muted:#6b80a3;
+  --border:rgba(147,197,253,.1);
+  --nav:64px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav);display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.25rem,5vw,3.5rem);
+  background:rgba(6,9,18,.8);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:var(--ice);letter-spacing:.06em}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.06em;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ice)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--muted);border-radius:2px;transition:.3s}
+@media(max-width:700px){
+  .nav-links{display:none;position:absolute;top:var(--nav);left:0;right:0;background:rgba(6,9,18,.97);flex-direction:column;padding:1.5rem 2rem;gap:1.25rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+
+/* ── HERO ── */
+#hero{
+  min-height:100svh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding:calc(var(--nav) + 3rem) clamp(1.5rem,7vw,5rem) 4rem;
+  gap:3rem;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-orb{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,var(--glow) 0%,transparent 70%);
+  animation:pulse 6s ease-in-out infinite alternate;
+}
+.hero-orb.a{width:700px;height:700px;top:-10%;right:-5%;opacity:.7}
+.hero-orb.b{width:400px;height:400px;bottom:0;left:20%;opacity:.4;animation-delay:2s}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+canvas#stars{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+
+.hero-left{position:relative;z-index:2}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ice);font-weight:500;margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--ice)}
+h1.hero-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.8rem,6vw,5.5rem);
+  font-weight:700;line-height:1.0;letter-spacing:-.025em;
+  color:var(--text);
+}
+h1.hero-name em{font-style:normal;color:var(--ice)}
+.hero-desc{
+  margin:1.5rem 0 2.25rem;
+  font-size:1.05rem;color:var(--muted);font-weight:300;max-width:440px;line-height:1.7;
+}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.65rem 1.6rem;border-radius:6px;
+  font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:600;
+  letter-spacing:.02em;cursor:pointer;transition:.2s;
+}
+.btn-primary{background:var(--blue);color:#fff;border:1.5px solid var(--blue)}
+.btn-primary:hover{background:var(--blue2);box-shadow:0 0 22px rgba(37,99,235,.4)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--ice);color:var(--ice)}
+
+/* HERO RIGHT — photo + awards */
+.hero-right{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem}
+.photo-frame{
+  position:relative;
+  width:clamp(220px,28vw,340px);
+  aspect-ratio:.8;
+  border-radius:16px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  background:linear-gradient(160deg,#0e1a2e 0%,#091120 100%);
+  flex-shrink:0;
+}
+.photo-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;
+}
+.photo-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.75rem;color:var(--muted);font-size:.8rem;text-align:center;padding:1.5rem;
+}
+.photo-placeholder .icon{font-size:2.5rem;opacity:.4}
+/* To add your photo: replace .photo-placeholder with an <img> tag */
+/* Example: <img src="images/profile.jpg" alt="Divya Krishna B.S"> */
+.photo-shine{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(135deg,rgba(147,197,253,.06) 0%,transparent 50%);
+  pointer-events:none;
+}
+
+/* ── ORB vessel ── */
+.orb-wrap{
+  position:relative;
+  width:clamp(240px,30vw,360px);
+  flex-shrink:0;
+  cursor:crosshair;
+}
+.orb-svg-clip{position:absolute;width:0;height:0}
+.orb-vessel{
+  position:relative;
+  width:100%;padding-bottom:120%;
+}
+.orb-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  clip-path:url(#orbClip);
+  -webkit-clip-path:url(#orbClip);
+  display:block;
+}
+.orb-photo-placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.6rem;color:var(--muted);font-size:.78rem;text-align:center;padding:2rem;
+  clip-path:url(#orbClip);-webkit-clip-path:url(#orbClip);
+  background:linear-gradient(160deg,#0e1a2e 0%,#091120 100%);
+}
+.orb-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:3;
+}
+.orb-glass{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:4;
+}
+/* stat strip */
+.hero-stats{
+  display:flex;gap:2rem;flex-wrap:wrap;margin:2rem 0 2.25rem;
+  padding:1.25rem 1.5rem;
+  background:rgba(15,23,41,.6);border:1px solid var(--border);
+  border-radius:12px;backdrop-filter:blur(8px);
+  width:fit-content;
+}
+.stat{display:flex;flex-direction:column}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;
+  color:var(--ice);line-height:1;
+}
+.stat-label{font-size:.72rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-top:.2rem}
+.award-pill{
+  background:rgba(15,23,41,.9);border:1px solid rgba(147,197,253,.2);
+  border-radius:40px;padding:.5rem 1.1rem;
+  display:flex;align-items:center;gap:.6rem;
+  font-size:.78rem;color:var(--text);backdrop-filter:blur(8px);
+  white-space:nowrap;
+}
+.award-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--ice);flex-shrink:0}
+
+/* Festival pills row */
+.fest-pills{display:flex;gap:.6rem;flex-wrap:wrap;align-self:flex-end}
+
+@media(max-width:860px){
+  #hero{grid-template-columns:1fr;text-align:center;padding-bottom:3rem}
+  .hero-left .hero-eyebrow,.hero-left .hero-desc,.hero-ctas{justify-content:center}
+  .hero-right{align-items:center}
+  .photo-frame{width:min(260px,70vw)}
+  h1.hero-name{font-size:clamp(2.5rem,10vw,4rem)}
+}
+
+/* ── SHARED SECTION ── */
+section{padding:5.5rem clamp(1.5rem,7vw,5rem)}
+section:nth-of-type(even){background:var(--ink2)}
+.s-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);font-weight:600;margin-bottom:.6rem}
+.s-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;line-height:1.1;color:var(--text);margin-bottom:1rem}
+.s-sub{color:var(--muted);font-size:1rem;max-width:500px;line-height:1.7;margin-bottom:3rem}
+.dash{width:36px;height:2px;background:var(--blue);margin:.9rem 0 2.25rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.show{opacity:1;transform:none}
+
+/* ── ABOUT ── */
+.about-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.about-body{color:var(--muted);font-size:1rem;line-height:1.8}
+.about-body p+p{margin-top:.9rem}
+.pull{
+  font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:500;
+  color:var(--text);line-height:1.4;
+  border-left:2px solid var(--blue);padding-left:1.2rem;margin-bottom:1.5rem;
+}
+.info-stack{display:flex;flex-direction:column;gap:1rem}
+.info-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.4rem}
+.info-block h4{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ice);margin-bottom:.45rem}
+.info-block p,.info-block a{font-size:.88rem;color:var(--muted);line-height:1.6}
+.info-block a{color:var(--ice);transition:opacity .2s}
+.info-block a:hover{opacity:.75}
+@media(max-width:760px){.about-cols{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ── SKILLS ── */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.25rem}
+.sk{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1.5rem 1.6rem;transition:border-color .25s,transform .25s;
+}
+.sk:hover{border-color:rgba(147,197,253,.35);transform:translateY(-3px)}
+.sk-icon{font-size:1.3rem;margin-bottom:.85rem}
+.sk h3{font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.7rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tag{
+  background:rgba(37,99,235,.13);border:1px solid rgba(37,99,235,.25);
+  color:var(--ice);border-radius:20px;font-size:.72rem;padding:.18rem .65rem;
+}
+
+/* ── GALLERY ── */
+.gallery-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.tab-btn{
+  padding:.5rem 1.25rem;border-radius:6px;
+  font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:600;
+  cursor:pointer;border:1.5px solid var(--border);background:transparent;
+  color:var(--muted);transition:.2s;letter-spacing:.03em;
+}
+.tab-btn.active,.tab-btn:hover{border-color:var(--blue2);color:var(--ice);background:rgba(37,99,235,.1)}
+
+.gallery-panel{display:none}
+.gallery-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.gcard{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;transition:transform .25s,border-color .25s;cursor:pointer;
+}
+.gcard:hover{transform:translateY(-4px);border-color:rgba(147,197,253,.3)}
+.gthumb{
+  width:100%;aspect-ratio:16/10;
+  background:linear-gradient(135deg,#0c1628 0%,#091020 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Replace the placeholder with a real image:
+   <img src="images/YOUR-FILE.jpg" alt="description" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"> */
+.gthumb .ph{font-size:2rem;opacity:.2}
+.gthumb-hint{
+  position:absolute;bottom:.6rem;left:.75rem;right:.75rem;
+  font-size:.65rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;
+  z-index:1;
+}
+.gthumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(6,9,18,.7))}
+.ginfo{padding:1.1rem 1.3rem}
+.ginfo h3{font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
+.ginfo p{font-size:.8rem;color:var(--muted)}
+.ginfo .tags{margin-top:.65rem}
+
+/* Add card */
+.add-card{
+  background:transparent;border:1.5px dashed var(--border);border-radius:12px;
+  min-height:200px;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:.5rem;color:var(--muted);font-size:.82rem;
+  cursor:default;padding:1.5rem;text-align:center;
+}
+
+/* ── AWARDS ── */
+.award-list{display:flex;flex-direction:column;gap:1.1rem;max-width:900px}
+.aw{
+  display:flex;align-items:flex-start;gap:1.25rem;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1.3rem 1.6rem;transition:border-color .25s;
+}
+.aw:hover{border-color:rgba(147,197,253,.3)}
+.aw-icon{
+  width:44px;height:44px;flex-shrink:0;border-radius:9px;
+  background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.aw-body h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.aw-body p{font-size:.83rem;color:var(--muted)}
+.aw-year{margin-left:auto;flex-shrink:0;font-family:'Space Grotesk',sans-serif;font-size:.82rem;color:var(--ice);font-weight:600;padding-top:.1rem}
+
+/* ── EXPERIENCE ── */
+.exp-wrap{max-width:860px}
+.exp-block{
+  position:relative;padding-left:2.25rem;
+  border-left:2px solid var(--border);margin-bottom:2.5rem;
+}
+.exp-block::before{
+  content:'';position:absolute;left:-7px;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--blue);border:2px solid var(--ink);
+}
+.exp-co{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text)}
+.exp-role{color:var(--ice);font-size:.85rem;font-weight:500;margin:.2rem 0 1rem}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.exp-list li{font-size:.88rem;color:var(--muted);padding-left:1.1rem;position:relative}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:.82rem}
+
+/* ── CONTACT ── */
+#contact{text-align:center;background:var(--ink2)}
+.contact-inner{max-width:560px;margin:0 auto}
+.contact-links{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
+.clink{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.6rem 1.35rem;border-radius:8px;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--muted);font-size:.83rem;transition:.2s;
+}
+.clink:hover{border-color:var(--ice);color:var(--ice)}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted)}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">DK/BS</span>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg">
+    <canvas id="stars"></canvas>
+    <div class="hero-orb a"></div>
+    <div class="hero-orb b"></div>
+  </div>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow">3D Artist · Texturing · Modeling · LookDev</p>
+    <h1 class="hero-name">Divya<br><em>Krishna B.S</em></h1>
+    <p class="hero-desc">
+      I build the surfaces, materials, and light that make 3D worlds feel real —
+      from award-winning short films to game assets and studio productions.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Projects</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Film Festivals</span></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label">Best Animation Award</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Passion</span></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#gallery" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- ── ORB VESSEL — interactive photo frame ── -->
+    <div class="orb-wrap" id="orbWrap">
+      <!-- SVG clip path defining the orb/vessel shape -->
+      <svg class="orb-svg-clip" aria-hidden="true">
+        <defs>
+          <clipPath id="orbClip" clipPathUnits="objectBoundingBox">
+            <!-- Tall rounded vessel / orb shape -->
+            <path d="M0.5,0.02
+              C0.78,0.02 0.97,0.18 0.97,0.38
+              C0.97,0.55 0.88,0.67 0.92,0.78
+              C0.97,0.92 0.85,1.0 0.5,1.0
+              C0.15,1.0 0.03,0.92 0.08,0.78
+              C0.12,0.67 0.03,0.55 0.03,0.38
+              C0.03,0.18 0.22,0.02 0.5,0.02Z"/>
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div class="orb-vessel">
+        <!--
+          TO ADD YOUR PHOTO:
+          1. Put your image at  images/profile.jpg
+          2. Remove the .orb-photo-placeholder div below
+          3. Un-comment the <img> line
+        -->
+        <!-- <img class="orb-photo" src="images/profile.jpg" alt="Divya Krishna B.S"> -->
+        <div class="orb-photo-placeholder">
+          <div style="font-size:2.5rem;opacity:.3">🧑‍🎨</div>
+          <p style="line-height:1.5">Your photo goes here<br><small style="opacity:.55">images/profile.jpg</small></p>
+        </div>
+
+        <!-- Particle canvas — stars fall inside the orb on hover -->
+        <canvas class="orb-canvas" id="orbCanvas"></canvas>
+
+        <!-- Glass sheen overlay -->
+        <svg class="orb-glass" viewBox="0 0 360 432" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="glassSheen" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="rgba(147,197,253,0.13)"/>
+              <stop offset="40%" stop-color="rgba(147,197,253,0.04)"/>
+              <stop offset="100%" stop-color="rgba(37,99,235,0.06)"/>
+            </linearGradient>
+            <linearGradient id="glassEdge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(147,197,253,0.35)"/>
+              <stop offset="15%" stop-color="rgba(147,197,253,0.08)"/>
+              <stop offset="85%" stop-color="rgba(147,197,253,0.04)"/>
+              <stop offset="100%" stop-color="rgba(147,197,253,0.28)"/>
+            </linearGradient>
+          </defs>
+          <!-- Main glass fill -->
+          <path d="M180,8 C281,8 349,65 349,138 C349,198 317,242 331,282 C349,331 306,361 180,361 C54,361 11,331 29,282 C43,242 11,198 11,138 C11,65 79,8 180,8Z"
+            fill="url(#glassSheen)" stroke="url(#glassEdge)" stroke-width="1.5"/>
+          <!-- Inner highlight streak -->
+          <path d="M100,30 C120,25 160,22 190,28" stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M60,80 C70,70 85,62 100,60" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Festival recognition pills -->
+    <div class="fest-pills">
+      <div class="award-pill"><div class="dot"></div> Mumbai SIFF 2025 — Best Animation</div>
+      <div class="award-pill"><div class="dot"></div> IIT Bombay — Finalist</div>
+      <div class="award-pill"><div class="dot"></div> Chitkara IAFF 2026 — Official Selection</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="rv">
+    <p class="s-label">About Me</p>
+    <h2 class="s-title">Building worlds<br>from the surface in.</h2>
+    <div class="dash"></div>
+  </div>
+  <div class="about-cols">
+    <div class="rv">
+      <p class="pull">"The texture of a surface tells the story of what something has been through."</p>
+      <div class="about-body">
+        <p>I'm a 3D artist specialising in texturing, look development, and modeling — currently completing my Bachelor of Design (Animation) at Whistling Woods International, Mumbai.</p>
+        <p>As Lead Texturing Artist on multiple fully realised student productions, I've worked across the entire CG pipeline: from UV layout and shader graphs to scene lighting, storyboarding, and compositing. My short film <em>Anomaly</em> won Best Animation at the Mumbai Short International Film Festival 2025 and reached audiences at IIT Bombay's First Film Fest and Chitkara IAFF 2026.</p>
+        <p>I recently interned at <strong>Studio EEKSAURUS</strong> as a Lighting & Texturing Artist on <em>Project Aurobindo</em>, where I painted hand-crafted HDRIs, lit shots under production timelines, and adapted to evolving visual styles mid-pipeline.</p>
+      </div>
+    </div>
+    <div class="info-stack rv">
+      <div class="info-block">
+        <h4>Location</h4>
+        <p>Mumbai, India</p>
+      </div>
+      <div class="info-block">
+        <h4>Education</h4>
+        <p>B.Des (Animation)<br>Whistling Woods International</p>
+      </div>
+      <div class="info-block">
+        <h4>Contact</h4>
+        <p>
+          <a href="mailto:divyakrishna.bs679@gmail.com">divyakrishna.bs679@gmail.com</a><br>
+          <a href="tel:+919589713486">+91 9589713486</a>
+        </p>
+      </div>
+      <div class="info-block">
+        <h4>Portfolios</h4>
+        <p>
+          <a href="https://bsdivyab22.myportfolio.com/" target="_blank">3D Portfolio ↗</a><br>
+          <a href="https://bsdivyab22afaa.myportfolio.com/" target="_blank">2D Portfolio ↗</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills">
+  <div class="rv">
+    <p class="s-label">Toolkit</p>
+    <h2 class="s-title">Skills & Software</h2>
+    <div class="dash"></div>
+  </div>
+  <div class="skill-grid">
+    <div class="sk rv">
+      <div class="sk-icon">🎨</div>
+      <h3>Texturing & Shading</h3>
+      <div class="tags">
+        <span class="tag">Substance Painter</span><span class="tag">Shader Dev</span>
+        <span class="tag">LookDev</span><span class="tag">Hand-painted HDRIs</span>
+      </div>
+    </div>
+    <div class="sk rv">
+      <div class="sk-icon">🗿</div>
+      <h3>Modeling & Sculpting</h3>
+      <div class="tags">
+        <span class="tag">ZBrush</span><span class="tag">Blender</span>
+        <span class="tag">Maya</span><span class="tag">Hard Surface</span><span class="tag">Organic</span>
+      </div>
+    </div>
+    <div class="sk rv">
+      <div class="sk-icon">💡</div>
+      <h3>Lighting & Rendering</h3>
+      <div class="tags">
+        <span class="tag">Scene Lighting</span><span class="tag">Composition</span>
+        <span class="tag">Unreal Engine</span><span class="tag">HDRIs</span>
+      </div>
+    </div>
+    <div class="sk rv">
+      <div class="sk-icon">✏️</div>
+      <h3>Concept & 2D</h3>
+      <div class="tags">
+        <span class="tag">Storyboarding</span><span class="tag">Character Design</span>
+        <span class="tag">Environment Art</span><span class="tag">Clip Studio Paint</span>
+        <span class="tag">Photoshop</span>
+      </div>
+    </div>
+    <div class="sk rv">
+      <div class="sk-icon">🎬</div>
+      <h3>Animation & Post</h3>
+      <div class="tags">
+        <span class="tag">Animation</span><span class="tag">Compositing</span>
+        <span class="tag">After Effects</span><span class="tag">Motion Graphics</span>
+        <span class="tag">Adobe Audition</span>
+      </div>
+    </div>
+    <div class="sk rv">
+      <div class="sk-icon">🎮</div>
+      <h3>Real-Time & Games</h3>
+      <div class="tags">
+        <span class="tag">Unreal Engine</span><span class="tag">Game Assets</span>
+        <span class="tag">Character Texturing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery">
+  <div class="rv">
+    <p class="s-label">Gallery</p>
+    <h2 class="s-title">Selected Work</h2>
+    <p class="s-sub">Browse by discipline — swap the placeholder cards with your renders, screenshots, or film stills.</p>
+    <div class="dash"></div>
+  </div>
+
+  <!-- TAB BUTTONS -->
+  <div class="gallery-tabs rv">
+    <button class="tab-btn active" data-tab="all">All Work</button>
+    <button class="tab-btn" data-tab="texturing">Texturing</button>
+    <button class="tab-btn" data-tab="lighting">Lighting</button>
+    <button class="tab-btn" data-tab="modelling">Modelling</button>
+    <button class="tab-btn" data-tab="films">Films</button>
+    <button class="tab-btn" data-tab="concept">Concept Art</button>
+  </div>
+
+  <!-- ALL -->
+  <div class="gallery-panel active" id="tab-all">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still.jpg</span></div>
+      <div class="ginfo"><h3>Anomaly — Film Still</h3><p>Award-winning student short film</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span><span class="tag">Lighting</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-study.jpg</span></div>
+      <div class="ginfo"><h3>Texture Study</h3><p>Substance Painter material breakdown</p><div class="tags"><span class="tag">Texturing</span><span class="tag">Shading</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/sculpt-character.jpg</span></div>
+      <div class="ginfo"><h3>Character Sculpt</h3><p>ZBrush organic sculpt with details</p><div class="tags"><span class="tag">Modelling</span><span class="tag">ZBrush</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-env.jpg</span></div>
+      <div class="ginfo"><h3>Environment Lighting</h3><p>Mood lighting setup — Project Aurobindo</p><div class="tags"><span class="tag">Lighting</span><span class="tag">LookDev</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎮</div><span class="gthumb-hint">images/game-asset.jpg</span></div>
+      <div class="ginfo"><h3>Game Asset</h3><p>Prop texturing for student game project</p><div class="tags"><span class="tag">Texturing</span><span class="tag">Games</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">✏️</div><span class="gthumb-hint">images/concept-art.jpg</span></div>
+      <div class="ginfo"><h3>Environment Concept</h3><p>Character & environment concept art</p><div class="tags"><span class="tag">Concept Art</span><span class="tag">2D</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Duplicate a card to add more work</p></div>
+  </div>
+
+  <!-- TEXTURING -->
+  <div class="gallery-panel" id="tab-texturing">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-1.jpg</span></div>
+      <div class="ginfo"><h3>Texture Study 01</h3><p>Substance Painter — metal & worn paint</p><div class="tags"><span class="tag">Substance Painter</span><span class="tag">Metal</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-2.jpg</span></div>
+      <div class="ginfo"><h3>Character Skin Texture</h3><p>Pore-level detail pass, Anomaly character</p><div class="tags"><span class="tag">Skin</span><span class="tag">Organic</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-3.jpg</span></div>
+      <div class="ginfo"><h3>Game Asset Texture</h3><p>PBR texture set for game project prop</p><div class="tags"><span class="tag">PBR</span><span class="tag">Games</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add texturing work here</p></div>
+  </div>
+
+  <!-- LIGHTING -->
+  <div class="gallery-panel" id="tab-lighting">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-1.jpg</span></div>
+      <div class="ginfo"><h3>HDRI Shot — Aurobindo</h3><p>Hand-painted HDRI for production shot</p><div class="tags"><span class="tag">HDRI</span><span class="tag">Studio</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-2.jpg</span></div>
+      <div class="ginfo"><h3>Interior Scene</h3><p>Mood lighting study — warm interior</p><div class="tags"><span class="tag">Interior</span><span class="tag">LookDev</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-3.jpg</span></div>
+      <div class="ginfo"><h3>Character Lighting</h3><p>Three-point lighting rig for character shot</p><div class="tags"><span class="tag">Character</span><span class="tag">Rig</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add lighting work here</p></div>
+  </div>
+
+  <!-- MODELLING -->
+  <div class="gallery-panel" id="tab-modelling">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/sculpt-1.jpg</span></div>
+      <div class="ginfo"><h3>Organic Sculpt</h3><p>ZBrush — character head sculpt</p><div class="tags"><span class="tag">ZBrush</span><span class="tag">Organic</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/hard-surface.jpg</span></div>
+      <div class="ginfo"><h3>Hard Surface Asset</h3><p>Blender — mechanical prop model</p><div class="tags"><span class="tag">Blender</span><span class="tag">Hard Surface</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/environment-model.jpg</span></div>
+      <div class="ginfo"><h3>Environment Layout</h3><p>Scene layout and asset placement</p><div class="tags"><span class="tag">Maya</span><span class="tag">Layout</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add modelling work here</p></div>
+  </div>
+
+  <!-- FILMS -->
+  <div class="gallery-panel" id="tab-films">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still-1.jpg</span></div>
+      <div class="ginfo"><h3>Anomaly — Act 1</h3><p>Lead Texturing Artist · Best Animation 2025</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span><span class="tag">Lighting</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still-2.jpg</span></div>
+      <div class="ginfo"><h3>Anomaly — Act 2</h3><p>Environment textures and character lookdev</p><div class="tags"><span class="tag">LookDev</span><span class="tag">Environment</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/student-film-2.jpg</span></div>
+      <div class="ginfo"><h3>Student Film 2</h3><p>Lead Texturing · second completed 3D film</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span></div></div>
+    </div>
+    <!-- Video embed slot -->
+    <div class="gcard">
+      <div class="gthumb" style="align-items:center;justify-content:center;flex-direction:column;gap:.5rem">
+        <div class="ph" style="opacity:.3">▶</div>
+        <p style="font-size:.72rem;color:var(--muted);text-align:center;padding:0 1rem;z-index:2;position:relative">
+          Paste a YouTube embed here<br>
+          <code style="font-size:.65rem;opacity:.6">&lt;iframe src="https://youtube.com/embed/..."&gt;</code>
+        </p>
+      </div>
+      <div class="ginfo"><h3>Showreel</h3><p>Link your YouTube / Vimeo showreel</p><div class="tags"><span class="tag">Reel</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add film stills here</p></div>
+  </div>
+
+  <!-- CONCEPT ART -->
+  <div class="gallery-panel" id="tab-concept">
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">✏️</div><span class="gthumb-hint">images/concept-char.jpg</span></div>
+      <div class="ginfo"><h3>Character Concept</h3><p>Original character design sheet</p><div class="tags"><span class="tag">Character</span><span class="tag">Design</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">🏞️</div><span class="gthumb-hint">images/concept-env.jpg</span></div>
+      <div class="ginfo"><h3>Environment Concept</h3><p>Location study — Anomaly pre-production</p><div class="tags"><span class="tag">Environment</span><span class="tag">Pre-prod</span></div></div>
+    </div>
+    <div class="gcard">
+      <div class="gthumb"><div class="ph">📋</div><span class="gthumb-hint">images/storyboard.jpg</span></div>
+      <div class="ginfo"><h3>Storyboard Sequence</h3><p>Key shot breakdown for short film</p><div class="tags"><span class="tag">Storyboard</span><span class="tag">2D</span></div></div>
+    </div>
+    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add concept art here</p></div>
+  </div>
+</section>
+
+<!-- ══ AWARDS ══ -->
+<section id="awards">
+  <div class="rv">
+    <p class="s-label">Recognition</p>
+    <h2 class="s-title">Awards & Festivals</h2>
+    <div class="dash"></div>
+  </div>
+  <div class="award-list">
+    <div class="aw rv">
+      <div class="aw-icon">🏆</div>
+      <div class="aw-body">
+        <h3>Best Animation — Student Category</h3>
+        <p>14th Mumbai Short International Film Festival · Short film <em>Anomaly</em></p>
+      </div>
+      <span class="aw-year">2025</span>
+    </div>
+    <div class="aw rv">
+      <div class="aw-icon">🎖️</div>
+      <div class="aw-body">
+        <h3>Finalist — Student Film Competition</h3>
+        <p>First Film Fest Animation Festival, IIT Bombay · Short film <em>Anomaly</em></p>
+      </div>
+      <span class="aw-year">2025</span>
+    </div>
+    <div class="aw rv">
+      <div class="aw-icon">🌟</div>
+      <div class="aw-body">
+        <h3>Official Selection — Student Category</h3>
+        <p>Chitkara International Animation Film Festival · Short film <em>Anomaly</em></p>
+      </div>
+      <span class="aw-year">2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="rv">
+    <p class="s-label">Experience</p>
+    <h2 class="s-title">Where I've Worked</h2>
+    <div class="dash"></div>
+  </div>
+  <div class="exp-wrap">
+    <div class="exp-block rv">
+      <div class="exp-co">Studio EEKSAURUS</div>
+      <div class="exp-role">Lighting & Texturing Artist — Project Aurobindo (Internship)</div>
+      <ul class="exp-list">
+        <li>Lit production shots according to supervisor-approved look references</li>
+        <li>Textured props and characters across multiple scenes</li>
+        <li>Created hand-painted HDRIs for bespoke shot lighting</li>
+        <li>Sculpted assets under tight delivery deadlines</li>
+        <li>Laid out environments in response to last-minute production decisions</li>
+        <li>Adapted fluidly to evolving visual styles mid-pipeline</li>
+      </ul>
+    </div>
+    <div class="exp-block rv">
+      <div class="exp-co">Student Productions — WWI</div>
+      <div class="exp-role">Lead Texturing Artist · 3D Short Films & Game Projects</div>
+      <ul class="exp-list">
+        <li>Led texturing on two fully realised 3D short films, maintaining visual consistency</li>
+        <li>Contributed to animation, concept art, lighting, and storyboarding</li>
+        <li>Developed detailed asset and character textures for two student game projects</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ── -->
+<section>
+  <div class="rv">
+    <p class="s-label">Education</p>
+    <h2 class="s-title">Background</h2>
+    <div class="dash"></div>
+  </div>
+  <div class="info-block rv" style="max-width:420px;display:flex;gap:1.25rem;align-items:flex-start">
+    <div style="font-size:1.6rem;flex-shrink:0">🎓</div>
+    <div>
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text)">Whistling Woods International</p>
+      <p>Bachelor of Design (Animation)<br>Mumbai, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="contact-inner rv">
+    <p class="s-label">Say Hello</p>
+    <h2 class="s-title">Let's build<br>something beautiful.</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:.75rem;line-height:1.7">
+      Open to texturing, LookDev, lighting, and 3D freelance projects.<br>
+      Drop me a line and let's talk.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:divyakrishna.bs679@gmail.com" class="clink">✉ divyakrishna.bs679@gmail.com</a>
+      <a href="tel:+919589713486" class="clink">📞 +91 9589713486</a>
+      <a href="https://www.linkedin.com/in/divyakrishna-b-s-8b9462262" target="_blank" class="clink">in LinkedIn</a>
+      <a href="https://bsdivyab22.myportfolio.com/" target="_blank" class="clink">🎨 3D Portfolio</a>
+      <a href="https://bsdivyab22afaa.myportfolio.com/" target="_blank" class="clink">✏️ 2D Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Divya Krishna B.S · 3D Artist · Mumbai, India</footer>
+
+<script>
+/* Starfield */
+(()=>{
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');
+  let S=[];
+  function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight}
+  function init(){S=Array.from({length:140},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3+.15,spd:Math.random()*.1+.03,a:Math.random()*.6+.15,da:(Math.random()*.003+.001)*(Math.random()<.5?1:-1)}))}
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    S.forEach(s=>{
+      s.a+=s.da;if(s.a>.85||s.a<.08)s.da*=-1;
+      s.y+=s.spd;if(s.y>c.height){s.y=0;s.x=Math.random()*c.width}
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(147,197,253,${s.a})`;ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  resize();init();draw();
+  window.addEventListener('resize',()=>{resize();init()});
+})();
+
+/* ── ORB PHYSICS — stars fall inside the vessel on hover ── */
+(()=>{
+  const wrap = document.getElementById('orbWrap');
+  const canvas = document.getElementById('orbCanvas');
+  if(!wrap||!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W,H, particles=[], animId=null, hovering=false, spawnTimer=0;
+
+  function resize(){
+    const r=wrap.getBoundingClientRect();
+    W=canvas.width=r.width; H=canvas.height=r.height;
+  }
+
+  /* Is point (px,py) inside the orb shape? Uses same proportions as SVG path */
+  function inOrb(px,py){
+    /* orb centroid roughly at 50% x, 47% y; semi-axes tuned to the path */
+    const cx=W*0.5, cy=H*0.465;
+    const rx=W*0.465, ryTop=H*0.455, ryBot=H*0.535;
+    const ry=py<cy?ryTop:ryBot;
+    const dx=(px-cx)/rx, dy=(py-cy)/ry;
+    /* slight pear distortion: wider at bottom */
+    const pear = py>cy ? 1 - (py-cy)/H*0.18 : 1;
+    return (dx*dx + dy*dy)*pear < 0.97;
+  }
+
+  /* Bottom floor of orb at x */
+  function orbFloor(px){
+    const cx=W*0.5, rx=W*0.465;
+    const dx=(px-cx)/rx; const inside=1-dx*dx;
+    if(inside<=0) return H;
+    /* bottom arc: cy + ryBot*sqrt(1-dx^2) */
+    return H*0.465 + H*0.535*Math.sqrt(inside);
+  }
+
+  /* Spawn a star particle from the top of the orb near px */
+  function spawnStar(mx){
+    const spread=W*0.28;
+    const x = Math.max(W*0.08, Math.min(W*0.92, mx + (Math.random()-0.5)*spread));
+    const size = Math.random()*3+1.5;
+    particles.push({
+      x, y: H*0.07 + Math.random()*H*0.05,
+      vx:(Math.random()-0.5)*1.2,
+      vy: Math.random()*0.8+0.3,
+      size,
+      spin: Math.random()*Math.PI*2,
+      spinV:(Math.random()-0.5)*0.12,
+      alpha:0, targetAlpha:Math.random()*.7+.5,
+      hue: Math.random()<0.7 ? 'ice' : Math.random()<0.5 ? 'gold' : 'white',
+      resting:false, restY:0, life:1
+    });
+  }
+
+  /* Draw a 4-pointed star */
+  function drawStar4(ctx, x, y, size, spin, color, alpha){
+    ctx.save();
+    ctx.globalAlpha=alpha;
+    ctx.translate(x,y);ctx.rotate(spin);
+    ctx.beginPath();
+    const o=size, i=size*0.38;
+    for(let k=0;k<8;k++){
+      const r=k%2===0?o:i, a=k*Math.PI/4;
+      k===0?ctx.moveTo(Math.cos(a)*r,Math.sin(a)*r):ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);
+    }
+    ctx.closePath();
+    ctx.fillStyle=color;
+    ctx.shadowColor=color; ctx.shadowBlur=size*2.5;
+    ctx.fill();
+    /* tiny center dot */
+    ctx.beginPath();ctx.arc(0,0,size*0.18,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,0.9)';ctx.shadowBlur=0;ctx.fill();
+    ctx.restore();
+  }
+
+  function colorFor(h){
+    if(h==='ice') return 'rgba(147,197,253,1)';
+    if(h==='gold') return 'rgba(253,220,120,1)';
+    return 'rgba(230,240,255,1)';
+  }
+
+  const GRAVITY=0.22, BOUNCE=0.28, FRICTION=0.88, MAX_P=120;
+
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+
+    /* spawn */
+    if(hovering && particles.length<MAX_P){
+      spawnTimer++;
+      if(spawnTimer%4===0){
+        const mx=lastMx||W/2;
+        spawnStar(mx); if(Math.random()<0.3) spawnStar(mx+Math.random()*30-15);
+      }
+    }
+
+    for(let i=particles.length-1;i>=0;i--){
+      const p=particles[i];
+
+      if(!p.resting){
+        p.vy+=GRAVITY;
+        p.x+=p.vx; p.y+=p.vy;
+        p.spin+=p.spinV;
+
+        /* wall bounce — keep inside orb horizontally */
+        const margin=p.size+2;
+        /* simple horizontal clamp at this y */
+        const cy=H*0.465, rx=W*0.465;
+        const dy=(p.y-cy)/(p.y<cy?H*0.455:H*0.535);
+        const clampRx = dy*dy<1 ? rx*Math.sqrt(1-dy*dy) : 0;
+        const leftWall=W*0.5-clampRx+margin, rightWall=W*0.5+clampRx-margin;
+        if(p.x<leftWall){p.x=leftWall;p.vx=Math.abs(p.vx)*BOUNCE}
+        if(p.x>rightWall){p.x=rightWall;p.vx=-Math.abs(p.vx)*BOUNCE}
+
+        /* floor */
+        const floor=orbFloor(p.x)-margin;
+        if(p.y>=floor){
+          p.y=floor;
+          p.vy*=-BOUNCE; p.vx*=FRICTION;
+          if(Math.abs(p.vy)<0.4 && Math.abs(p.vx)<0.3){
+            p.resting=true; p.restY=floor;
+          }
+        }
+
+        /* fade out if outside orb */
+        if(!inOrb(p.x,p.y)) p.life-=0.04;
+      } else {
+        /* resting particles slowly fade if not hovering */
+        if(!hovering) p.life-=0.003;
+        p.spin+=p.spinV*0.05;
+      }
+
+      p.alpha = Math.min(p.alpha+0.06, p.targetAlpha) * p.life;
+
+      if(p.alpha<=0.01){particles.splice(i,1);continue}
+
+      drawStar4(ctx,p.x,p.y,p.size,p.spin,colorFor(p.hue),p.alpha);
+    }
+
+    animId=requestAnimationFrame(tick);
+  }
+
+  let lastMx=null;
+  wrap.addEventListener('mouseenter',e=>{
+    hovering=true;
+    const r=wrap.getBoundingClientRect();
+    lastMx=(e.clientX-r.left);
+    if(!animId){resize();tick()}
+  });
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    lastMx=(e.clientX-r.left);
+  });
+  wrap.addEventListener('mouseleave',()=>{hovering=false});
+
+  /* touch */
+  wrap.addEventListener('touchstart',e=>{hovering=true;if(!animId){resize();tick()}},{passive:true});
+  wrap.addEventListener('touchend',()=>{hovering=false},{passive:true});
+
+  window.addEventListener('resize',resize);
+  resize();
+})();
+
+/* Hamburger */
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+}));
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.09,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* Gallery tabs */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.gallery-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
