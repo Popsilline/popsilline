@@ -54,9 +54,30 @@ const GALLERY = [
   // { file:"texture-1.jpg", title:"Skin Texture Study", desc:"Pore-level detail in Substance Painter", tags:["Substance Painter","Skin"], tab:"texturing" },
 
 
+
+
+  // ── MORNING RESETS — SHORT FILM ──────────────────────────
+  // Lighting, procedural shaders & compositing for ~40 shots · Blender
+  { file:"Office2.png",  title:"Office shot",         desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
+  { file:"Teacherapproach.png",  title:"Void shot lighting",         desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
+  { video:"https://www.youtube.com/embed/NwqAJHVRg_g?si=eA8nEMx3vjGgVNyM", title:"Morning Resets — Clip 1",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/AlurQVwHKAc?si=v8J84rhPY8HEOjJY", title:"Morning Resets — Clip 2",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/JTYcNHJgLqk?si=hQzTQinEsGkb4D74", title:"Morning Resets — Clip 3",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/mkl-sYzEm_I?si=MYAgeCXx1ZPOrFSp", title:"Morning Resets — Clip 4",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+
+    // ── THOMAS — WARRIOR BIRD (LIGHTING) ─────────────────────
+  { file:"Thomasrender.png",  title:"Thomas — Full Render",         desc:"Warrior bird Thomas · fully shader-based character · lit & composited entirely in Blender · medieval village environment",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
+
+
+  // ── PIXEL DEER — SHADER STUDY ────────────────────────────
+  { video:"https://www.youtube.com/embed/9PyXsaMlpwc?si=jvE5ZODFuWxTJaJx", title:"Pixel Deer — Shader Study 1", desc:"Pixel deer made entirely in Blender using procedural shaders · no textures · pure shader-driven look",           tags:["Shaders","Blender","Procedural","Study"],            tab:"lighting" },
+  
+
+  // ── DELTARUNE FANART ──────────────────────────────────────
+  { video:"https://www.youtube.com/embed/bDqANNmcFd4?si=EI6gqOIOlkMg_oj8", title:"Deltarune — Fan Scene",       desc:"All characters sculpted, shaders developed & environment built as a rush project in one day · Blender",          tags:["Shaders","Sculpting","Blender","Fanart","Environment"], tab:"lighting" },
+  
   // ── LIGHTING — SRI AUROBINDO: A CALL TO NEW INDIA ────────
   // Production lighting & compositing during internship at Studio EEKSAURUS · Blender
-
   { file:"Aurobindo9.png", title:"Aurobindo — City at Dawn",          desc:"Sri Aurobindo: A Call to New India · Internship at Studio EEKSAURUS · Warm golden sunburst breaking over the cityscape · Blender",            tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
   { file:"Aurobindo10.png", title:"Aurobindo — Figure & Light Streak", desc:"Sri Aurobindo: A Call to New India · Stylised figure with animated light ribbon · teal rim lighting & atmosphere · Blender",                  tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
   { file:"Aurobindo11.png", title:"Aurobindo — Divine Radiance",       desc:"Sri Aurobindo: A Call to New India · Central goddess figure radiating golden beams across global landmarks · Blender",                         tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
@@ -73,24 +94,7 @@ const GALLERY = [
   { file:"Aurobindo7.png", title:"Aurobindo — Sacred Tree",           desc:"Sri Aurobindo: A Call to New India · Red mist environment with an ancient tree silhouette & subtle light streak · Blender",                   tags:["Lighting","Environment","Production","Blender","Eeksaurus"], tab:"lighting" },
   { file:"Aurobindo8.png", title:"Aurobindo — Japan Landscape",       desc:"Sri Aurobindo: A Call to New India · Warm hazy Japanese landscape · cherry blossom sparkle & torii gate · Blender",                          tags:["Lighting","Environment","Production","Blender","Eeksaurus"], tab:"lighting" },
 
-  // ── THOMAS — WARRIOR BIRD (LIGHTING) ─────────────────────
-  { file:"Thomasrender.png",  title:"Thomas — Full Render",         desc:"Warrior bird Thomas · fully shader-based character · lit & composited entirely in Blender · medieval village environment",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
 
-  // ── MORNING RESETS — SHORT FILM ──────────────────────────
-  // Lighting, procedural shaders & compositing for ~40 shots · Blender
-  { file:"Office2.png",  title:"Office shot",         desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
-  { file:"Teacherapproach.png",  title:"Void shot lighting",         desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
-  { video:"https://www.youtube.com/embed/NwqAJHVRg_g?si=eA8nEMx3vjGgVNyM", title:"Morning Resets — Clip 1",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
-  { video:"https://www.youtube.com/embed/AlurQVwHKAc?si=v8J84rhPY8HEOjJY", title:"Morning Resets — Clip 2",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
-  { video:"https://www.youtube.com/embed/JTYcNHJgLqk?si=hQzTQinEsGkb4D74", title:"Morning Resets — Clip 3",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
-  { video:"https://www.youtube.com/embed/mkl-sYzEm_I?si=MYAgeCXx1ZPOrFSp", title:"Morning Resets — Clip 4",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
-
-  // ── PIXEL DEER — SHADER STUDY ────────────────────────────
-  { video:"https://www.youtube.com/embed/9PyXsaMlpwc?si=jvE5ZODFuWxTJaJx", title:"Pixel Deer — Shader Study 1", desc:"Pixel deer made entirely in Blender using procedural shaders · no textures · pure shader-driven look",           tags:["Shaders","Blender","Procedural","Study"],            tab:"lighting" },
-  
-
-  // ── DELTARUNE FANART ──────────────────────────────────────
-  { video:"https://www.youtube.com/embed/bDqANNmcFd4?si=EI6gqOIOlkMg_oj8", title:"Deltarune — Fan Scene",       desc:"All characters sculpted, shaders developed & environment built as a rush project in one day · Blender",          tags:["Shaders","Sculpting","Blender","Fanart","Environment"], tab:"lighting" },
 
 
   // ── FILMS ────────────────────────────────────────────────
