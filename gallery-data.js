@@ -52,6 +52,17 @@ const GALLERY = [
   // ── TEXTURING ────────────────────────────────────────────
   // Add texturing work here:
   { video:"https://www.youtube.com/embed/Tq54Z-hB7Oo?si=pxYcQiMgF7qwfmjE", title:"Anomaly — Clip 1",  desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender", tags:["Film","Shaders","Texturing","Blender"], tab:"texturing" },
+  { file:"Anomaly1.png",  title:"Anamoly Env 1",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing","Shaders","Compositing","Blender","Character"],    tab:"texturing" },
+  { file:"Anomaly4.png",  title:"Anamoly Env 2",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing","Shaders","Compositing","Blender","Character"],    tab:"texturing" },
+  { file:"Anomaly9.png",  title:"Anamoly Env 3",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing","Shaders","Compositing","Blender","Character"],    tab:"texturing" },
+  { file:"Anomaly10.png",  title:"Anamoly Env 4",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing","Shaders","Compositing","Blender","Character"],    tab:"texturing" },
+  { file:"ceiling2.png",  title:"Ceiling Bot",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing", "Blender","Character"],    tab:"texturing" },
+  { file:"data.png",  title:"Data Bot",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing", "Blender","Character"],    tab:"texturing" },
+  { file:"MiniGuard.png",  title:"Mini Guard Bot",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing", "Blender","Character"],    tab:"texturing" },
+  { file:"Mainbot1.png",  title:"Main Bot",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing", "Blender","Character"],    tab:"texturing" },
+  { file:"ceiling2.png",  title:"Ceiling Bot",         desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender",                               tags:["Texturing", "Blender","Character"],    tab:"texturing" },
+  { file:"character4.png",  title:"Hand painted texture test",         desc:"Personal project· Substance Painter 3D · Blender",                               tags:["Texturing", "Substance Painter 3D","Character"],    tab:"texturing" },
+  
   // { file:"texture-1.jpg", title:"Skin Texture Study", desc:"Pore-level detail in Substance Painter", tags:["Substance Painter","Skin"], tab:"texturing" },
 
 
@@ -99,8 +110,10 @@ const GALLERY = [
 
 
   // ── FILMS ────────────────────────────────────────────────
-  // Add film stills or embed YouTube videos here:
+  // Add film stills or embed YouTube videos here: 
   // { video:"https://www.youtube.com/embed/YOUR_VIDEO_ID", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" },
+  { video:"https://www.youtube.com/embed/kkzj8cCrbrw?si=ABXj8eRJvhsBexkm", title:"Aurobindo — A call to new dawn", desc:"Lighting and Texturing, along with asset creations for some places", tags:["Film","Showreel"], tab:"films" },
+  { video:"https://www.youtube.com/embed/Tq54Z-hB7Oo?si=Vz9jTRq8LAKMkjTc", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" }
 
 
   // ── CONCEPT ART ──────────────────────────────────────────
