@@ -51,6 +51,7 @@ const GALLERY = [
 
   // ── TEXTURING ────────────────────────────────────────────
   // Add texturing work here:
+  { video:"https://www.youtube.com/embed/Tq54Z-hB7Oo?si=pxYcQiMgF7qwfmjE", title:"Anomaly — Clip 1",  desc:"Semester 5 short film · Solo texturing artist· Substance Painter 3D · Blender", tags:["Film","Shaders","Texturing","Blender"], tab:"texturing" },
   // { file:"texture-1.jpg", title:"Skin Texture Study", desc:"Pore-level detail in Substance Painter", tags:["Substance Painter","Skin"], tab:"texturing" },
 
 
