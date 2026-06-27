@@ -4,10 +4,10 @@
 //  HOW TO ADD A NEW IMAGE:
 //  1. Upload image to the  images/  folder on GitHub
 //  2. Add one line below with:
-//       file  → exact filename
+//       file  → exact filename (must match what you uploaded)
 //       title → name on the card
 //       desc  → short description
-//       tags  → labels (as many as you like)
+//       tags  → labels
 //       tab   → "modelling" | "texturing" | "lighting" | "films" | "concept"
 //
 //  EXAMPLE:
@@ -17,36 +17,36 @@
 const GALLERY = [
 
   // ── LUCIFER ──────────────────────────────────────────────
-  { file:"Lucifer1.png",  title:"Lucifer — Front",      desc:"Stylised full-body character · dramatic silhouette & tuxedo design",  tags:["Character","Full Body","Stylised","Blender"], tab:"modelling" },
-  { file:"Lucifer2.png",  title:"Lucifer — Back View",  desc:"Back silhouette showing coat split & heel detail",                    tags:["Character","Cloth","Stylised"],               tab:"modelling" },
+  { file:"Lucifer1.png",             title:"Lucifer — Front",              desc:"Stylised full-body character · dramatic silhouette & tuxedo design",       tags:["Character","Full Body","Stylised","Blender"], tab:"modelling" },
+  { file:"Lucifer2.png",             title:"Lucifer — Back View",          desc:"Back silhouette showing coat split & heel detail",                         tags:["Character","Cloth","Stylised"],               tab:"modelling" },
 
   // ── QUEEN CHESS ──────────────────────────────────────────
-  { file:"Queen1.png",    title:"Queen Chess — Side",      desc:"Elegant chess queen character · flowing gown & ornate accessories", tags:["Character","Fantasy","ZBrush"],  tab:"modelling" },
-  { file:"Queen2.png",    title:"Queen Chess — Back View", desc:"Back view showing gown silhouette & hair braid detail",            tags:["Character","Cloth","ZBrush"],    tab:"modelling" },
+  { file:"Queen1.png",               title:"Queen Chess — Side",           desc:"Elegant chess queen character · flowing gown & ornate accessories",        tags:["Character","Fantasy","ZBrush"],               tab:"modelling" },
+  { file:"Queen2.png",               title:"Queen Chess — Back View",      desc:"Back view showing gown silhouette & hair braid detail",                    tags:["Character","Cloth","ZBrush"],                 tab:"modelling" },
 
   // ── THOMAS — WARRIOR BIRD ────────────────────────────────
-  { file:"Screenshot_2025-05-21_231416.png", title:"Thomas — Wings Spread", desc:"Warrior bird creature sculpt · full wingspan & sword prop · ZBrush", tags:["Creature","ZBrush","Props"], tab:"modelling" },
+  { file:"Thomas_wing_spread.png",   title:"Thomas — Wings Spread",        desc:"Warrior bird creature sculpt · full wingspan & sword prop · ZBrush",      tags:["Creature","ZBrush","Props"],                  tab:"modelling" },
 
   // ── ABSOLUTE BANE ────────────────────────────────────────
-  { file:"Bane2.png",  title:"Absolute Bane — Torso Detail", desc:"Close-up of hyper-muscular anatomy & tactical gear",           tags:["Anatomy","Hard Surface","ZBrush"],          tab:"modelling" },
-  { file:"Bane3.png",  title:"Absolute Bane — Full Body",    desc:"Hyper-muscular superhero figure · complete anatomy study",     tags:["Anatomy","Character","ZBrush","Full Body"],  tab:"modelling" },
+  { file:"Bane2.png",                title:"Absolute Bane — Torso Detail", desc:"Close-up of hyper-muscular anatomy & tactical gear",                      tags:["Anatomy","Hard Surface","ZBrush"],            tab:"modelling" },
+  { file:"Bane3.png",                title:"Absolute Bane — Full Body",    desc:"Hyper-muscular superhero figure · complete anatomy study",                tags:["Anatomy","Character","ZBrush","Full Body"],   tab:"modelling" },
 
   // ── POISON IVY BUST ──────────────────────────────────────
-  { file:"Ivy5.png",   title:"Poison Ivy — Bust",            desc:"Character bust · custom tattoo surface etch & dragon arm · ZBrush", tags:["ZBrush","Organic","Character","Sculpting"], tab:"modelling" },
+  { file:"Ivy5.png",                 title:"Poison Ivy — Bust",            desc:"Character bust · custom tattoo surface etch & dragon arm · ZBrush",       tags:["ZBrush","Organic","Character","Sculpting"],   tab:"modelling" },
 
   // ── LAPRAS ───────────────────────────────────────────────
-  { file:"Lapris3.png", title:"Lapras — Front",  desc:"Fan-art creature sculpt · stylised anatomy & shell detail",  tags:["Creature","Stylised","ZBrush"],  tab:"modelling" },
-  { file:"Lapris4.png", title:"Lapras — Side",   desc:"Side silhouette read & spiked shell geometry",              tags:["Creature","Hard Surface"],       tab:"modelling" },
+  { file:"Lapris3.png",              title:"Lapras — Front",               desc:"Fan-art creature sculpt · stylised anatomy & shell detail",               tags:["Creature","Stylised","ZBrush"],               tab:"modelling" },
+  { file:"Lapris4.png",              title:"Lapras — Side",                desc:"Side silhouette read & spiked shell geometry",                            tags:["Creature","Hard Surface"],                    tab:"modelling" },
 
   // ── SALVIA ───────────────────────────────────────────────
-  { file:"Screenshot_2026-06-27_110745.png", title:"Salvia — Front", desc:"Stylised chibi character · scalloped dress & detailed curly hair", tags:["Character","Stylised","Maya","Chibi"], tab:"modelling" },
+  { file:"Salvia.png",               title:"Salvia — Front",               desc:"Stylised chibi character · scalloped dress & detailed curly hair",        tags:["Character","Stylised","Maya","Chibi"],        tab:"modelling" },
 
   // ── GARDENIA ─────────────────────────────────────────────
-  { file:"Screenshot_2026-06-27_111045.png", title:"Gardenia V01", desc:"Gardenia character variant 1 · braided pigtails & scalloped dress", tags:["Character","Stylised","Maya","Chibi"], tab:"modelling" },
-  { file:"Screenshot_2026-06-27_111242.png", title:"Gardenia V02", desc:"Gardenia character variant 2 · twin buns hairstyle",               tags:["Character","Stylised","Maya","Chibi"], tab:"modelling" },
+  { file:"Gardenia_V01.png",         title:"Gardenia V01",                 desc:"Gardenia character variant 1 · braided pigtails & scalloped dress",       tags:["Character","Stylised","Maya","Chibi"],        tab:"modelling" },
+  { file:"Gardenia_V02.png",         title:"Gardenia V02",                 desc:"Gardenia character variant 2 · twin buns hairstyle",                      tags:["Character","Stylised","Maya","Chibi"],        tab:"modelling" },
 
   // ── MONSTER TEACHER ──────────────────────────────────────
-  { file:"Screenshot.png", title:"Monster Teacher", desc:"Stylised slim character · shirt, tie, belt & elongated proportions", tags:["Character","Stylised","Maya"], tab:"modelling" },
+  { file:"Monster_Teacher.png",      title:"Monster Teacher",              desc:"Stylised slim character · shirt, tie, belt & elongated proportions",      tags:["Character","Stylised","Maya"],                tab:"modelling" },
 
 
   // ── TEXTURING ────────────────────────────────────────────
@@ -60,8 +60,9 @@ const GALLERY = [
 
 
   // ── FILMS ────────────────────────────────────────────────
-  // Add film stills here:
+  // Add film stills or embed YouTube videos here:
   // { file:"anomaly-still.jpg", title:"Anomaly — Film Still", desc:"Award-winning student short film", tags:["Film","Texturing","Lighting"], tab:"films" },
+  // { video:"https://www.youtube.com/embed/YOUR_VIDEO_ID", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" },
 
 
   // ── CONCEPT ART ──────────────────────────────────────────
