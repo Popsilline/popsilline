@@ -268,13 +268,33 @@ section:nth-of-type(even){background:var(--ink2)}
 }
 
 /* ── FEATURED WORK ── */
-.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-bottom:4rem}
+.featured-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:1.5rem;
+  margin-bottom:4rem;
+}
+.featured-grid .feat-card:nth-child(1){grid-column:1;grid-row:1/3}
+.featured-grid .feat-card:nth-child(2){grid-column:2;grid-row:1}
+.featured-grid .feat-card:nth-child(3){grid-column:2;grid-row:2}
+.featured-grid .feat-card:nth-child(4){grid-column:1/3;grid-row:3}
+@media(max-width:700px){
+  .featured-grid{grid-template-columns:1fr}
+  .featured-grid .feat-card:nth-child(1),
+  .featured-grid .feat-card:nth-child(4){grid-column:1;grid-row:auto}
+  .featured-grid .feat-card:nth-child(2),
+  .featured-grid .feat-card:nth-child(3){grid-column:1;grid-row:auto}
+}
 .feat-card{
   position:relative;border-radius:14px;overflow:hidden;
   border:1px solid var(--border);cursor:pointer;
   transition:transform .3s,border-color .3s,box-shadow .3s;
-  aspect-ratio:16/9;
+  min-height:280px;
 }
+.feat-card--video{cursor:default}
+.feat-card--video:hover{transform:none;box-shadow:none}
+.feat-overlay--video{pointer-events:none}
 .feat-card:hover{transform:translateY(-5px);border-color:rgba(147,197,253,.4);box-shadow:0 12px 40px rgba(37,99,235,.18)}
 .feat-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .feat-card:hover img{transform:scale(1.04)}
@@ -294,24 +314,17 @@ section:nth-of-type(even){background:var(--ink2)}
 .feat-overlay p{font-size:.75rem;color:rgba(147,197,253,.8)}
 
 /* ── GALLERY FOLDER VIEW ── */
-.gallery-folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.gallery-folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
 .gfolder{
   background:var(--card);border:1px solid var(--border);border-radius:14px;
   overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s;
 }
 .gfolder:hover{transform:translateY(-5px);border-color:rgba(147,197,253,.35);box-shadow:0 10px 36px rgba(37,99,235,.14)}
 .gfolder-tab{
-  height:10px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue2) 100%);
-  border-radius:0;position:relative;
+  height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue2) 100%);
+  border-radius:0;
 }
-.gfolder-tab::before{
-  content:'';position:absolute;top:0;left:0;width:60px;height:100%;
-  background:rgba(255,255,255,.15);border-radius:0 4px 0 0;
-}
-.gfolder-previews{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
-  padding:12px 12px 0;height:130px;
-}
+.gfolder-previews{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:12px 12px 0;height:170px;}
 .gfolder-previews div{
   background:linear-gradient(135deg,#0c1628,#091020);
   border-radius:4px;overflow:hidden;
@@ -615,7 +628,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
         </p>
       </div>
       <div class="info-block">
-        <h4>Portfolios</h4>
+        <h4>Social Media</h4>
         <p>
           <a href="https://www.instagram.com/popsilline/" target="_blank">Instagram ↗</a><br>
           <a href="https://www.linkedin.com/in/divyakrishna-b-s-8b9462262/" target="_blank">LinkedIN ↗</a>
@@ -757,7 +770,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
   </div>
   <div class="award-list">
     <div class="aw rv">
-      <div class="aw-icon">🏆</div>
+      <div class="aw-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--ice)" stroke-width="1.8" stroke-linecap="round"><path d="M6 9H3V4h18v5h-3M6 9a6 6 0 0 0 12 0M12 15v4M8 19h8"/></svg></div>
       <div class="aw-body">
         <h3>Best Animation — Student Category</h3>
         <p>14th Mumbai Short International Film Festival · Short film <em>Anomaly</em></p>
@@ -765,7 +778,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       <span class="aw-year">2025</span>
     </div>
     <div class="aw rv">
-      <div class="aw-icon">🎖️</div>
+      <div class="aw-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--ice)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="m9 12 .5 9 2.5-1.5 2.5 1.5.5-9"/></svg></div>
       <div class="aw-body">
         <h3>Finalist — Student Film Competition</h3>
         <p>First Film Fest Animation Festival, IIT Bombay · Short film <em>Anomaly</em></p>
@@ -773,7 +786,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       <span class="aw-year">2025</span>
     </div>
     <div class="aw rv">
-      <div class="aw-icon">🌟</div>
+      <div class="aw-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--ice)" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <div class="aw-body">
         <h3>Official Selection — Student Category</h3>
         <p>Chitkara International Animation Film Festival · Short film <em>Anomaly</em></p>
@@ -823,7 +836,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <div class="dash"></div>
   </div>
   <div class="info-block rv" style="max-width:420px;display:flex;gap:1.25rem;align-items:flex-start">
-    <div style="font-size:1.6rem;flex-shrink:0">🎓</div>
+    <div style="flex-shrink:0;width:42px;height:42px;border-radius:9px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--ice)" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c0 2 2.686 3 6 3s6-1 6-3v-5"/></svg></div>
     <div>
       <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text)">Whistling Woods International</p>
       <p>Bachelor of Design (Animation)<br>Mumbai, India</p>
@@ -838,14 +851,14 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <h2 class="s-title">Let's build<br>something beautiful.</h2>
     <p style="color:var(--muted);font-size:1rem;margin-top:.75rem;line-height:1.7">
       Open to texturing, LookDev, lighting, and 3D freelance projects.<br>
-      Drop me a line and let's talk.
+      Drop me a line — let's talk.
     </p>
     <div class="contact-links">
       <a href="mailto:divyakrishna.bs679@gmail.com" class="clink">✉ divyakrishna.bs679@gmail.com</a>
       <a href="tel:+919589713486" class="clink">📞 +91 9589713486</a>
       <a href="https://www.linkedin.com/in/divyakrishna-b-s-8b9462262" target="_blank" class="clink">in LinkedIn</a>
-      <a href="https://bsdivyab22.myportfolio.com/" target="_blank" class="clink">🎨 3D Portfolio</a>
-      <a href="https://bsdivyab22afaa.myportfolio.com/" target="_blank" class="clink">✏️ 2D Portfolio</a>
+      <a href="https://www.linkedin.com/in/divyakrishna-b-s-8b9462262/" target="_blank" class="clink">in LinkedIn</a>
+      <a href="https://www.instagram.com/popsilline/" target="_blank" class="clink">◎ Instagram</a>
     </div>
   </div>
 </section>
@@ -1060,16 +1073,16 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 const FEATURED_FILES = [
   "Thomasrender.png",
   "Office2.png",
-  "Bane3.png",
-  "Teacherapproach.png"
+  { video:"https://www.youtube.com/embed/9PyXsaMlpwc?si=jvE5ZODFuWxTJaJx", title:"Pixel Deer — Shader Study", desc:"Procedural shaders · no textures · pure shader-driven look · Blender", tab:"lighting" },
+  { video:"https://www.youtube.com/embed/bDqANNmcFd4?si=EI6gqOIOlkMg_oj8", title:"Deltarune — Fan Scene",      desc:"All characters sculpted, shaders & environment built in one day · Blender", tab:"lighting" },
 ];
 
 const FOLDER_META = {
-  modelling: { label:"Modelling",      color:"#2563EB" },
-  lighting:  { label:"Lighting",       color:"#7c3aed" },
-  texturing: { label:"Texturing",      color:"#0891b2" },
-  films:     { label:"Films",          color:"#be123c" },
-  concept:   { label:"Concept Art",    color:"#b45309" },
+  modelling: { label:"Modelling",   color:"#2563EB" },
+  lighting:  { label:"Lighting",    color:"#1e40af" },
+  texturing: { label:"Texturing",   color:"#1d4ed8" },
+  films:     { label:"Films",       color:"#1e3a8a" },
+  concept:   { label:"Concept Art", color:"#3b82f6" },
 };
 
 function makeCard(item, idx){
@@ -1100,10 +1113,23 @@ function buildGallery(){
   /* ── FEATURED ── */
   const featGrid = document.getElementById('featured-grid');
   if(featGrid){
-    const featItems = FEATURED_FILES.map(f=>GALLERY.find(i=>i.file===f)).filter(Boolean);
+    const featItems = FEATURED_FILES.map(f=>{
+      if(typeof f === 'object') return f; // inline video object
+      return GALLERY.find(i=>i.file===f);
+    }).filter(Boolean);
     featGrid.innerHTML = featItems.map(item=>{
       const idx = GALLERY.indexOf(item);
       const tabLabel = FOLDER_META[item.tab]?.label || item.tab;
+      if(item.video){
+        return `<div class="feat-card feat-card--video">
+          <iframe src="${item.video}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe>
+          <div class="feat-overlay feat-overlay--video">
+            <span class="feat-badge">${tabLabel}</span>
+            <h3>${item.title}</h3>
+            <p>${item.desc.split('·')[0].trim()}</p>
+          </div>
+        </div>`;
+      }
       return `<div class="feat-card" onclick="openLightbox(${idx})">
         <img src="images/${item.file}" alt="${item.title}" loading="lazy">
         <div class="feat-overlay">
