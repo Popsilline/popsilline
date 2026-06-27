@@ -10,8 +10,8 @@
 //       tags  → labels
 //       tab   → "modelling" | "texturing" | "lighting" | "films" | "concept"
 //
-//  EXAMPLE:
-//  { file:"NewSculpt.png", title:"Dragon Head", desc:"ZBrush creature sculpt", tags:["ZBrush","Creature"], tab:"modelling" },
+//  FOR VIDEOS:
+//  { video:"https://www.youtube.com/embed/VIDEO_ID", title:"...", desc:"...", tags:[...], tab:"lighting" },
 // ============================================================
 
 const GALLERY = [
@@ -54,14 +54,45 @@ const GALLERY = [
   // { file:"texture-1.jpg", title:"Skin Texture Study", desc:"Pore-level detail in Substance Painter", tags:["Substance Painter","Skin"], tab:"texturing" },
 
 
-  // ── LIGHTING ─────────────────────────────────────────────
-  // Add lighting work here:
-  // { file:"lighting-1.jpg", title:"HDRI Shot — Aurobindo", desc:"Hand-painted HDRI for production shot", tags:["HDRI","Studio"], tab:"lighting" },
+  // ── LIGHTING — SRI AUROBINDO: A CALL TO NEW INDIA ────────
+  // Production lighting & compositing during internship at Studio EEKSAURUS · Blender
+
+  { file:"Screenshot_2025-12-11_004345.png", title:"Aurobindo — City at Dawn",          desc:"Sri Aurobindo: A Call to New India · Internship at Studio EEKSAURUS · Warm golden sunburst breaking over the cityscape · Blender",            tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004537.png", title:"Aurobindo — Figure & Light Streak", desc:"Sri Aurobindo: A Call to New India · Stylised figure with animated light ribbon · teal rim lighting & atmosphere · Blender",                  tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004626.png", title:"Aurobindo — Divine Radiance",       desc:"Sri Aurobindo: A Call to New India · Central goddess figure radiating golden beams across global landmarks · Blender",                         tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004803.png", title:"Aurobindo — Red Mist March",        desc:"Sri Aurobindo: A Call to New India · Volumetric red fog with backlit figures emerging from darkness · Blender",                                tags:["Lighting","Volumetrics","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004846.png", title:"Aurobindo — Cave & Torchlight",     desc:"Sri Aurobindo: A Call to New India · Warm torch glow cutting through cave darkness · deep red volumetric atmosphere · Blender",               tags:["Lighting","Volumetrics","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004915.png", title:"Aurobindo — Campfire Scene",        desc:"Sri Aurobindo: A Call to New India · Intimate campfire lighting with warm orange rim on surrounding figures · Blender",                        tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004959.png", title:"Aurobindo — Isolation",             desc:"Sri Aurobindo: A Call to New India · Cold blue window light casting a lone silhouette in a dark interior · Blender",                          tags:["Lighting","Mood","Production","Blender","Eeksaurus"],        tab:"lighting" },
+  { file:"Screenshot_2025-12-08_194113.png", title:"Aurobindo — Cricket Stadium",       desc:"Sri Aurobindo: A Call to New India · Stadium floodlight haze with warm hero rim light on the batsman · Blender",                              tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-08_194327.png", title:"Aurobindo — Lab Discovery",         desc:"Sri Aurobindo: A Call to New India · Purple-gold split lighting on scientists with lens flare effect · Blender",                              tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-08_194755.png", title:"Aurobindo — Yoga & Motion",         desc:"Sri Aurobindo: A Call to New India · Warm backlit crowd of figures in motion on a lotus landscape · Blender",                                 tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-10_224420.png", title:"Aurobindo — Quill & Knowledge",     desc:"Sri Aurobindo: A Call to New India · Pink-purple glow on a glowing quill writing across ancient parchment · Blender",                        tags:["Lighting","Compositing","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_003855.png", title:"Aurobindo — Eruption",              desc:"Sri Aurobindo: A Call to New India · Intense ember-lit chaos scene with volumetric fire and particle scatter · Blender",                      tags:["Lighting","Volumetrics","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_003955.png", title:"Aurobindo — Torch Procession",      desc:"Sri Aurobindo: A Call to New India · Crowd carrying torches through amber fog · particle sparks & warm rim lighting · Blender",               tags:["Lighting","Volumetrics","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004148.png", title:"Aurobindo — Sacred Tree",           desc:"Sri Aurobindo: A Call to New India · Red mist environment with an ancient tree silhouette & subtle light streak · Blender",                   tags:["Lighting","Environment","Production","Blender","Eeksaurus"], tab:"lighting" },
+  { file:"Screenshot_2025-12-11_004221.png", title:"Aurobindo — Japan Landscape",       desc:"Sri Aurobindo: A Call to New India · Warm hazy Japanese landscape · cherry blossom sparkle & torii gate · Blender",                          tags:["Lighting","Environment","Production","Blender","Eeksaurus"], tab:"lighting" },
+
+  // ── THOMAS — WARRIOR BIRD (LIGHTING) ─────────────────────
+  { file:"Divya_Thomas_render.png",  title:"Thomas — Full Render",         desc:"Warrior bird Thomas · fully shader-based character · lit & composited entirely in Blender · medieval village environment",                               tags:["Lighting","Shaders","Compositing","Blender","Character"],    tab:"lighting" },
+
+  // ── MORNING RESETS — SHORT FILM ──────────────────────────
+  // Lighting, procedural shaders & compositing for ~40 shots · Blender
+  { video:"https://www.youtube.com/embed/NwqAJHVRg_g?si=eA8nEMx3vjGgVNyM", title:"Morning Resets — Clip 1",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/AlurQVwHKAc?si=v8J84rhPY8HEOjJY", title:"Morning Resets — Clip 2",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/JTYcNHJgLqk?si=hQzTQinEsGkb4D74", title:"Morning Resets — Clip 3",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+  { video:"https://www.youtube.com/embed/mkl-sYzEm_I?si=MYAgeCXx1ZPOrFSp", title:"Morning Resets — Clip 4",  desc:"Personal short film · Lit & composited ~40 shots solo · procedural shaders for all assets & characters · Blender", tags:["Film","Lighting","Shaders","Compositing","Blender"], tab:"lighting" },
+
+  // ── PIXEL DEER — SHADER STUDY ────────────────────────────
+  { video:"https://www.youtube.com/embed/9PyXsaMlpwc?si=jvE5ZODFuWxTJaJx", title:"Pixel Deer — Shader Study 1", desc:"Pixel deer made entirely in Blender using procedural shaders · no textures · pure shader-driven look",           tags:["Shaders","Blender","Procedural","Study"],            tab:"lighting" },
+  
+
+  // ── DELTARUNE FANART ──────────────────────────────────────
+  { video:"https://www.youtube.com/embed/bDqANNmcFd4?si=EI6gqOIOlkMg_oj8", title:"Deltarune — Fan Scene",       desc:"All characters sculpted, shaders developed & environment built as a rush project in one day · Blender",          tags:["Shaders","Sculpting","Blender","Fanart","Environment"], tab:"lighting" },
 
 
   // ── FILMS ────────────────────────────────────────────────
   // Add film stills or embed YouTube videos here:
-  // { file:"anomaly-still.jpg", title:"Anomaly — Film Still", desc:"Award-winning student short film", tags:["Film","Texturing","Lighting"], tab:"films" },
   // { video:"https://www.youtube.com/embed/YOUR_VIDEO_ID", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" },
 
 
