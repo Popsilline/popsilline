@@ -35,8 +35,8 @@ const GALLERY = [
   { file:"Ivy5.png",                 title:"Poison Ivy — Bust",            desc:"Character bust · custom tattoo surface etch & dragon arm · ZBrush",       tags:["ZBrush","Organic","Character","Sculpting"],   tab:"modelling" },
 
   // ── LAPRAS ───────────────────────────────────────────────
-  { file:"Lapris3.png",              title:"Lapras — Front",               desc:"Fan-art creature sculpt · stylised anatomy & shell detail",               tags:["Creature","Stylised","ZBrush"],               tab:"modelling" },
-  { file:"Lapris4.png",              title:"Lapras — Side",                desc:"Side silhouette read & spiked shell geometry",                            tags:["Creature","Hard Surface"],                    tab:"modelling" },
+  { file:"Lapras3.png",              title:"Lapras — Front",               desc:"Fan-art creature sculpt · stylised anatomy & shell detail",               tags:["Creature","Stylised","ZBrush"],               tab:"modelling" },
+  { file:"Lapras4.png",              title:"Lapras — Side",                desc:"Side silhouette read & spiked shell geometry",                            tags:["Creature","Hard Surface"],                    tab:"modelling" },
 
   // ── SALVIA ───────────────────────────────────────────────
   { file:"Salvia.png",               title:"Salvia — Front",               desc:"Stylised chibi character · scalloped dress & detailed curly hair",        tags:["Character","Stylised","Maya","Chibi"],        tab:"modelling" },
