@@ -241,29 +241,113 @@ section:nth-of-type(even){background:var(--ink2)}
 @media(max-width:760px){.about-cols{grid-template-columns:1fr;gap:2.5rem}}
 
 /* ── SKILLS ── */
-.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.25rem}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
 .sk{
-  background:var(--card);border:1px solid var(--border);border-radius:12px;
-  padding:1.5rem 1.6rem;transition:border-color .25s,transform .25s;
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:1.6rem 1.6rem 1.4rem;transition:border-color .3s,transform .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
 }
-.sk:hover{border-color:rgba(147,197,253,.35);transform:translateY(-3px)}
-.sk-icon{font-size:1.3rem;margin-bottom:.85rem}
-.sk h3{font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.7rem}
+.sk::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(37,99,235,.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.sk:hover{border-color:rgba(147,197,253,.4);transform:translateY(-4px);box-shadow:0 8px 32px rgba(37,99,235,.12)}
+.sk-icon-wrap{
+  width:38px;height:38px;border-radius:9px;margin-bottom:1rem;
+  background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.28);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sk-icon-wrap svg{width:18px;height:18px;stroke:var(--ice);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sk h3{font-family:'Space Grotesk',sans-serif;font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.7rem;letter-spacing:.01em}
+.sk-divider{width:24px;height:1.5px;background:linear-gradient(to right,var(--blue),transparent);margin-bottom:.75rem;border-radius:2px}
 .tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .tag{
-  background:rgba(37,99,235,.13);border:1px solid rgba(37,99,235,.25);
-  color:var(--ice);border-radius:20px;font-size:.72rem;padding:.18rem .65rem;
+  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);
+  color:var(--ice);border-radius:20px;font-size:.7rem;padding:.2rem .65rem;letter-spacing:.01em;
 }
 
-/* ── GALLERY ── */
-.gallery-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.tab-btn{
-  padding:.5rem 1.25rem;border-radius:6px;
-  font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:600;
-  cursor:pointer;border:1.5px solid var(--border);background:transparent;
-  color:var(--muted);transition:.2s;letter-spacing:.03em;
+/* ── FEATURED WORK ── */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-bottom:4rem}
+.feat-card{
+  position:relative;border-radius:14px;overflow:hidden;
+  border:1px solid var(--border);cursor:pointer;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+  aspect-ratio:16/9;
 }
-.tab-btn.active,.tab-btn:hover{border-color:var(--blue2);color:var(--ice);background:rgba(37,99,235,.1)}
+.feat-card:hover{transform:translateY(-5px);border-color:rgba(147,197,253,.4);box-shadow:0 12px 40px rgba(37,99,235,.18)}
+.feat-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.feat-card:hover img{transform:scale(1.04)}
+.feat-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(4,8,20,.92) 0%,rgba(4,8,20,.3) 50%,transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem 1.4rem;
+}
+.feat-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ice);font-weight:600;margin-bottom:.4rem;
+  background:rgba(37,99,235,.25);border:1px solid rgba(37,99,235,.4);
+  border-radius:20px;padding:.2rem .7rem;width:fit-content;
+}
+.feat-overlay h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.feat-overlay p{font-size:.75rem;color:rgba(147,197,253,.8)}
+
+/* ── GALLERY FOLDER VIEW ── */
+.gallery-folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.gfolder{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.gfolder:hover{transform:translateY(-5px);border-color:rgba(147,197,253,.35);box-shadow:0 10px 36px rgba(37,99,235,.14)}
+.gfolder-tab{
+  height:10px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue2) 100%);
+  border-radius:0;position:relative;
+}
+.gfolder-tab::before{
+  content:'';position:absolute;top:0;left:0;width:60px;height:100%;
+  background:rgba(255,255,255,.15);border-radius:0 4px 0 0;
+}
+.gfolder-previews{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  padding:12px 12px 0;height:130px;
+}
+.gfolder-previews div{
+  background:linear-gradient(135deg,#0c1628,#091020);
+  border-radius:4px;overflow:hidden;
+}
+.gfolder-previews div img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.gfolder-previews div.empty{opacity:.3;border:1px dashed var(--border)}
+.gfolder-info{padding:1rem 1.2rem 1.2rem}
+.gfolder-info h3{
+  font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;
+  color:var(--text);margin-bottom:.25rem;
+}
+.gfolder-meta{display:flex;align-items:center;justify-content:space-between}
+.gfolder-count{font-size:.75rem;color:var(--muted)}
+.gfolder-arrow{
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ice);font-size:.8rem;transition:background .2s,transform .2s;
+}
+.gfolder:hover .gfolder-arrow{background:rgba(37,99,235,.35);transform:translateX(2px)}
+
+/* Back button when inside a folder */
+.gallery-back{
+  display:none;align-items:center;gap:.5rem;
+  font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:600;
+  color:var(--muted);cursor:pointer;border:none;background:none;padding:0;
+  margin-bottom:1.5rem;transition:color .2s;
+}
+.gallery-back.visible{display:flex}
+.gallery-back:hover{color:var(--ice)}
+.gallery-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.gallery-folder-title{
+  font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;
+  color:var(--text);margin-bottom:1.5rem;display:none;
+}
+.gallery-folder-title.visible{display:block}
 
 .gallery-panel{display:none}
 .gallery-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;animation:fadeUp .35s ease}
@@ -456,19 +540,9 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       </svg>
 
       <div class="orb-vessel">
-        <!--
-          TO ADD YOUR PHOTO:
-          1. Put your image in the  images/  folder on GitHub
-          2. Change "profile.jpg" below to your actual filename
-          3. Delete the placeholder div underneath
-        -->
-        <img class="orb-photo" src="images/profile.png" alt="Divya Krishna B.S" onerror="this.style.display='none';document.getElementById('orbPlaceholder').style.display='flex'">
-        <div class="orb-photo-placeholder" id="orbPlaceholder" style="display:none">
-          <div style="font-size:2.5rem;opacity:.3">🧑‍🎨</div>
-          <p style="line-height:1.5">Add <strong>images/profile.jpg</strong><br>to your repo</p>
-        </div>
+        <img class="orb-photo" src="images/profile.png" alt="Divya Krishna B.S">
 
-        <!-- Vignette — dark edges that hug the jar shape -->
+        <!-- Vignette — dark edges that hug the jar shape on hover -->
         <div class="orb-vignette"></div>
 
         <!-- Particle canvas — stars fall inside the orb on hover -->
@@ -543,8 +617,8 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       <div class="info-block">
         <h4>Portfolios</h4>
         <p>
-          <a href="https://www.linkedin.com/in/divyakrishna-b-s-8b9462262/" target="_blank">LinkdIn ↗</a><br>
-          <a href="https://www.instagram.com/popsilline/" target="_blank">Instagram ↗</a>
+          <a href="https://bsdivyab22.myportfolio.com/" target="_blank">3D Portfolio ↗</a><br>
+          <a href="https://bsdivyab22afaa.myportfolio.com/" target="_blank">2D Portfolio ↗</a>
         </p>
       </div>
     </div>
@@ -559,56 +633,81 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <div class="dash"></div>
   </div>
   <div class="skill-grid">
+
     <div class="sk rv">
-      <div class="sk-icon">🎨</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 2.4-1.6 4.4-3.8 5.1L20 19H4l6.8-6.9A5 5 0 0 1 7 7a5 5 0 0 1 5-5z"/><path d="M8 19v2M16 19v2"/></svg>
+      </div>
       <h3>Texturing & Shading</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
         <span class="tag">Substance Painter</span><span class="tag">Shader Dev</span>
         <span class="tag">LookDev</span><span class="tag">Hand-painted HDRIs</span>
       </div>
     </div>
+
     <div class="sk rv">
-      <div class="sk-icon">🗿</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 16l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
       <h3>Modeling & Sculpting</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
         <span class="tag">ZBrush</span><span class="tag">Blender</span>
         <span class="tag">Maya</span><span class="tag">Hard Surface</span><span class="tag">Organic</span>
       </div>
     </div>
+
     <div class="sk rv">
-      <div class="sk-icon">💡</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </div>
       <h3>Lighting & Rendering</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
-        <span class="tag">Scene Lighting</span><span class="tag">Composition</span>
-        <span class="tag">Unreal Engine</span><span class="tag">HDRIs</span>
+        <span class="tag">Scene Lighting</span><span class="tag">Compositing</span>
+        <span class="tag">Blender</span><span class="tag">HDRIs</span>
       </div>
     </div>
+
     <div class="sk rv">
-      <div class="sk-icon">✏️</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      </div>
       <h3>Concept & 2D</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
         <span class="tag">Storyboarding</span><span class="tag">Character Design</span>
         <span class="tag">Environment Art</span><span class="tag">Clip Studio Paint</span>
         <span class="tag">Photoshop</span>
       </div>
     </div>
+
     <div class="sk rv">
-      <div class="sk-icon">🎬</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7l3 3-3 3M13 13h4"/></svg>
+      </div>
       <h3>Animation & Post</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
         <span class="tag">Animation</span><span class="tag">Compositing</span>
         <span class="tag">After Effects</span><span class="tag">Motion Graphics</span>
         <span class="tag">Adobe Audition</span>
       </div>
     </div>
+
     <div class="sk rv">
-      <div class="sk-icon">🎮</div>
+      <div class="sk-icon-wrap">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l2 2-2 2M13 12h3"/></svg>
+      </div>
       <h3>Real-Time & Games</h3>
+      <div class="sk-divider"></div>
       <div class="tags">
         <span class="tag">Unreal Engine</span><span class="tag">Game Assets</span>
         <span class="tag">Character Texturing</span>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -620,18 +719,28 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <div class="dash"></div>
   </div>
 
-  <!-- TAB BUTTONS -->
-  <div class="gallery-tabs rv">
-    <button class="tab-btn active" data-tab="all">All Work</button>
-    <button class="tab-btn" data-tab="texturing">Texturing</button>
-    <button class="tab-btn" data-tab="lighting">Lighting</button>
-    <button class="tab-btn" data-tab="modelling">Modelling</button>
-    <button class="tab-btn" data-tab="films">Films</button>
-    <button class="tab-btn" data-tab="concept">Concept Art</button>
+  <!-- FEATURED WORK -->
+  <div class="rv">
+    <p class="s-label" style="margin-bottom:1rem">Featured</p>
+  </div>
+  <div class="featured-grid rv" id="featured-grid"></div>
+
+  <!-- BROWSE BY CATEGORY -->
+  <div class="rv" style="margin-top:1rem">
+    <p class="s-label" style="margin-bottom:1.25rem">Browse by Category</p>
   </div>
 
-  <!-- Panels — built automatically from gallery-data.js -->
-  <div class="gallery-panel active" id="tab-all"></div>
+  <!-- Back button (shown when inside a folder) -->
+  <button class="gallery-back" id="gallery-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Categories
+  </button>
+  <div class="gallery-folder-title" id="gallery-folder-title"></div>
+
+  <!-- Folder cards -->
+  <div class="gallery-folders rv" id="gallery-folders"></div>
+
+  <!-- Hidden panels — shown when a folder is opened -->
   <div class="gallery-panel" id="tab-texturing"></div>
   <div class="gallery-panel" id="tab-lighting"></div>
   <div class="gallery-panel" id="tab-modelling"></div>
@@ -948,44 +1057,129 @@ const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.tar
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 /* Gallery — built from gallery-data.js */
+const FEATURED_FILES = [
+  "Divya_Thomas_render.png",
+  "Screenshot_2025-12-11_003955.png",
+  "Bane3.png",
+  "Screenshot_2025-12-11_004626.png"
+];
+
+const FOLDER_META = {
+  modelling: { label:"Modelling",      color:"#2563EB" },
+  lighting:  { label:"Lighting",       color:"#7c3aed" },
+  texturing: { label:"Texturing",      color:"#0891b2" },
+  films:     { label:"Films",          color:"#be123c" },
+  concept:   { label:"Concept Art",    color:"#b45309" },
+};
+
+function makeCard(item, idx){
+  const tagsHtml = item.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  if(item.video){
+    return `<div class="gcard">
+      <div class="gthumb" style="align-items:center;justify-content:center">
+        <iframe src="${item.video}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="ginfo"><h3>${item.title}</h3><p>${item.desc}</p><div class="tags">${tagsHtml}</div></div>
+    </div>`;
+  }
+  return `<div class="gcard" onclick="openLightbox(${idx})" data-idx="${idx}">
+    <div class="gthumb">
+      <img src="images/${item.file}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+    </div>
+    <div class="ginfo">
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+      <div class="tags">${tagsHtml}</div>
+    </div>
+  </div>`;
+}
+
 function buildGallery(){
   if(typeof GALLERY==='undefined') return;
 
-  function makeCard(item, idx){
-    const tagsHtml = item.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-    if(item.video){
-      return `<div class="gcard">
-        <div class="gthumb" style="align-items:center;justify-content:center">
-          <iframe src="${item.video}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe>
+  /* ── FEATURED ── */
+  const featGrid = document.getElementById('featured-grid');
+  if(featGrid){
+    const featItems = FEATURED_FILES.map(f=>GALLERY.find(i=>i.file===f)).filter(Boolean);
+    featGrid.innerHTML = featItems.map(item=>{
+      const idx = GALLERY.indexOf(item);
+      const tabLabel = FOLDER_META[item.tab]?.label || item.tab;
+      return `<div class="feat-card" onclick="openLightbox(${idx})">
+        <img src="images/${item.file}" alt="${item.title}" loading="lazy">
+        <div class="feat-overlay">
+          <span class="feat-badge">${tabLabel}</span>
+          <h3>${item.title}</h3>
+          <p>${item.desc.split('·')[0].trim()}</p>
         </div>
-        <div class="ginfo"><h3>${item.title}</h3><p>${item.desc}</p><div class="tags">${tagsHtml}</div></div>
       </div>`;
-    }
-    return `<div class="gcard" onclick="openLightbox(${idx})" data-idx="${idx}">
-      <div class="gthumb">
-        <img src="images/${item.file}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
-      </div>
-      <div class="ginfo">
-        <h3>${item.title}</h3>
-        <p>${item.desc}</p>
-        <div class="tags">${tagsHtml}</div>
-      </div>
-    </div>`;
+    }).join('');
   }
 
-  const tabs = ['all','texturing','lighting','modelling','films','concept'];
+  /* ── FOLDER CARDS ── */
+  const foldersEl = document.getElementById('gallery-folders');
+  if(foldersEl){
+    const tabs = ['modelling','lighting','texturing','films','concept'];
+    foldersEl.innerHTML = tabs.map(tab=>{
+      const meta = FOLDER_META[tab];
+      const items = GALLERY.filter(i=>i.tab===tab && i.file);
+      const count = GALLERY.filter(i=>i.tab===tab).length;
+      const previews = items.slice(0,3);
+      while(previews.length<3) previews.push(null);
+      const previewHtml = previews.map(p=>p
+        ? `<div><img src="images/${p.file}" alt="" loading="lazy"></div>`
+        : `<div class="empty"></div>`
+      ).join('');
+      return `<div class="gfolder" onclick="openFolder('${tab}')">
+        <div class="gfolder-tab" style="background:linear-gradient(90deg,${meta.color},${meta.color}99)"></div>
+        <div class="gfolder-previews">${previewHtml}</div>
+        <div class="gfolder-info">
+          <h3>${meta.label}</h3>
+          <div class="gfolder-meta">
+            <span class="gfolder-count">${count} piece${count!==1?'s':''}</span>
+            <span class="gfolder-arrow">→</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  /* ── FILL PANELS (for when folders open) ── */
+  const tabs = ['texturing','lighting','modelling','films','concept'];
   tabs.forEach(tab=>{
     const panel = document.getElementById('tab-'+tab);
     if(!panel) return;
-    const items = tab==='all' ? GALLERY : GALLERY.filter(i=>i.tab===tab);
-    panel.innerHTML = items.map((item,i)=>makeCard(item,GALLERY.indexOf(item))).join('');
-    if(items.length===0){
-      panel.innerHTML = '<div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add images in gallery-data.js</p></div>';
-    }
+    const items = GALLERY.filter(i=>i.tab===tab);
+    panel.innerHTML = items.map(item=>makeCard(item,GALLERY.indexOf(item))).join('');
+    if(!items.length) panel.innerHTML='<div class="add-card"><p>Nothing here yet</p></div>';
   });
 }
 
-/* Lightbox */
+function openFolder(tab){
+  document.getElementById('gallery-folders').style.display='none';
+  document.getElementById('featured-grid').closest('.rv') && null;
+  document.querySelectorAll('.gallery-panel').forEach(p=>p.classList.remove('active'));
+  const panel = document.getElementById('tab-'+tab);
+  if(panel) panel.classList.add('active');
+  const back = document.getElementById('gallery-back');
+  back.classList.add('visible');
+  const title = document.getElementById('gallery-folder-title');
+  title.textContent = FOLDER_META[tab]?.label || tab;
+  title.classList.add('visible');
+  /* hide featured label */
+  document.querySelectorAll('#gallery .rv').forEach(r=>{
+    if(!r.querySelector('h2')) r.style.display='none';
+  });
+}
+
+document.getElementById('gallery-back').addEventListener('click',()=>{
+  document.querySelectorAll('.gallery-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('gallery-folders').style.display='grid';
+  document.getElementById('gallery-back').classList.remove('visible');
+  document.getElementById('gallery-folder-title').classList.remove('visible');
+  document.querySelectorAll('#gallery .rv').forEach(r=>r.style.display='');
+});
+
+buildGallery();
 let lbIdx=0;
 const imageItems = ()=>GALLERY.filter(i=>!i.video);
 
@@ -1040,17 +1234,6 @@ document.getElementById('lightbox').addEventListener('touchend',e=>{
   lbTouchX=null;
 },{passive:true});
 
-/* Gallery tabs */
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.gallery-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
-  });
-});
-
-buildGallery();
 </script>
 </body>
 </html>
