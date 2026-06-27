@@ -441,14 +441,14 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
       <div class="orb-vessel">
         <!--
           TO ADD YOUR PHOTO:
-          1. Put your image at  images/profile.jpg
-          2. Remove the .orb-photo-placeholder div below
-          3. Un-comment the <img> line
+          1. Put your image in the  images/  folder on GitHub
+          2. Change "profile.jpg" below to your actual filename
+          3. Delete the placeholder div underneath
         -->
-        <!-- <img class="orb-photo" src="images/profile.jpg" alt="Divya Krishna B.S"> -->
-        <div class="orb-photo-placeholder">
+        <img class="orb-photo" src="images/profile.jpg" alt="Divya Krishna B.S" onerror="this.style.display='none';document.getElementById('orbPlaceholder').style.display='flex'">
+        <div class="orb-photo-placeholder" id="orbPlaceholder" style="display:none">
           <div style="font-size:2.5rem;opacity:.3">🧑‍🎨</div>
-          <p style="line-height:1.5">Your photo goes here<br><small style="opacity:.55">images/profile.jpg</small></p>
+          <p style="line-height:1.5">Add <strong>images/profile.jpg</strong><br>to your repo</p>
         </div>
 
         <!-- Particle canvas — stars fall inside the orb on hover -->
@@ -597,7 +597,6 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
   <div class="rv">
     <p class="s-label">Gallery</p>
     <h2 class="s-title">Selected Work</h2>
-    <p class="s-sub">Browse by discipline — add new work by editing <strong>gallery-data.js</strong> only.</p>
     <div class="dash"></div>
   </div>
 
