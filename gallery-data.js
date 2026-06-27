@@ -121,7 +121,7 @@ const GALLERY = [
   // Add film stills or embed YouTube videos here: 
   // { video:"https://www.youtube.com/embed/YOUR_VIDEO_ID", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" },
   { video:"https://www.youtube.com/embed/kkzj8cCrbrw?si=ABXj8eRJvhsBexkm", title:"Aurobindo — A call to new dawn", desc:"Lighting and Texturing, along with asset creations for some places", tags:["Film","Showreel"], tab:"films" },
-  { video:"https://www.youtube.com/embed/Tq54Z-hB7Oo?si=Vz9jTRq8LAKMkjTc", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" }
+  { video:"https://www.youtube.com/embed/Tq54Z-hB7Oo?si=Vz9jTRq8LAKMkjTc", title:"Anomaly — Showreel", desc:"Best Animation · SIFF 2025", tags:["Film","Showreel"], tab:"films" },
 
 
   // ── CONCEPT ART ──────────────────────────────────────────
