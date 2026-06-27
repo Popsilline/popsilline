@@ -562,7 +562,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
   <div class="rv">
     <p class="s-label">Gallery</p>
     <h2 class="s-title">Selected Work</h2>
-    <p class="s-sub">Browse by discipline — swap the placeholder cards with your renders, screenshots, or film stills.</p>
+    <p class="s-sub">Browse by discipline — add new work by editing <strong>gallery-data.js</strong> only.</p>
     <div class="dash"></div>
   </div>
 
@@ -576,130 +576,13 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
     <button class="tab-btn" data-tab="concept">Concept Art</button>
   </div>
 
-  <!-- ALL -->
-  <div class="gallery-panel active" id="tab-all">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still.jpg</span></div>
-      <div class="ginfo"><h3>Anomaly — Film Still</h3><p>Award-winning student short film</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span><span class="tag">Lighting</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-study.jpg</span></div>
-      <div class="ginfo"><h3>Texture Study</h3><p>Substance Painter material breakdown</p><div class="tags"><span class="tag">Texturing</span><span class="tag">Shading</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/sculpt-character.jpg</span></div>
-      <div class="ginfo"><h3>Character Sculpt</h3><p>ZBrush organic sculpt with details</p><div class="tags"><span class="tag">Modelling</span><span class="tag">ZBrush</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-env.jpg</span></div>
-      <div class="ginfo"><h3>Environment Lighting</h3><p>Mood lighting setup — Project Aurobindo</p><div class="tags"><span class="tag">Lighting</span><span class="tag">LookDev</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎮</div><span class="gthumb-hint">images/game-asset.jpg</span></div>
-      <div class="ginfo"><h3>Game Asset</h3><p>Prop texturing for student game project</p><div class="tags"><span class="tag">Texturing</span><span class="tag">Games</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">✏️</div><span class="gthumb-hint">images/concept-art.jpg</span></div>
-      <div class="ginfo"><h3>Environment Concept</h3><p>Character & environment concept art</p><div class="tags"><span class="tag">Concept Art</span><span class="tag">2D</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Duplicate a card to add more work</p></div>
-  </div>
-
-  <!-- TEXTURING -->
-  <div class="gallery-panel" id="tab-texturing">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-1.jpg</span></div>
-      <div class="ginfo"><h3>Texture Study 01</h3><p>Substance Painter — metal & worn paint</p><div class="tags"><span class="tag">Substance Painter</span><span class="tag">Metal</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-2.jpg</span></div>
-      <div class="ginfo"><h3>Character Skin Texture</h3><p>Pore-level detail pass, Anomaly character</p><div class="tags"><span class="tag">Skin</span><span class="tag">Organic</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎨</div><span class="gthumb-hint">images/texture-3.jpg</span></div>
-      <div class="ginfo"><h3>Game Asset Texture</h3><p>PBR texture set for game project prop</p><div class="tags"><span class="tag">PBR</span><span class="tag">Games</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add texturing work here</p></div>
-  </div>
-
-  <!-- LIGHTING -->
-  <div class="gallery-panel" id="tab-lighting">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-1.jpg</span></div>
-      <div class="ginfo"><h3>HDRI Shot — Aurobindo</h3><p>Hand-painted HDRI for production shot</p><div class="tags"><span class="tag">HDRI</span><span class="tag">Studio</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-2.jpg</span></div>
-      <div class="ginfo"><h3>Interior Scene</h3><p>Mood lighting study — warm interior</p><div class="tags"><span class="tag">Interior</span><span class="tag">LookDev</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">💡</div><span class="gthumb-hint">images/lighting-3.jpg</span></div>
-      <div class="ginfo"><h3>Character Lighting</h3><p>Three-point lighting rig for character shot</p><div class="tags"><span class="tag">Character</span><span class="tag">Rig</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add lighting work here</p></div>
-  </div>
-
-  <!-- MODELLING -->
-  <div class="gallery-panel" id="tab-modelling">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/sculpt-1.jpg</span></div>
-      <div class="ginfo"><h3>Organic Sculpt</h3><p>ZBrush — character head sculpt</p><div class="tags"><span class="tag">ZBrush</span><span class="tag">Organic</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/hard-surface.jpg</span></div>
-      <div class="ginfo"><h3>Hard Surface Asset</h3><p>Blender — mechanical prop model</p><div class="tags"><span class="tag">Blender</span><span class="tag">Hard Surface</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🗿</div><span class="gthumb-hint">images/environment-model.jpg</span></div>
-      <div class="ginfo"><h3>Environment Layout</h3><p>Scene layout and asset placement</p><div class="tags"><span class="tag">Maya</span><span class="tag">Layout</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add modelling work here</p></div>
-  </div>
-
-  <!-- FILMS -->
-  <div class="gallery-panel" id="tab-films">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still-1.jpg</span></div>
-      <div class="ginfo"><h3>Anomaly — Act 1</h3><p>Lead Texturing Artist · Best Animation 2025</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span><span class="tag">Lighting</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/anomaly-still-2.jpg</span></div>
-      <div class="ginfo"><h3>Anomaly — Act 2</h3><p>Environment textures and character lookdev</p><div class="tags"><span class="tag">LookDev</span><span class="tag">Environment</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🎬</div><span class="gthumb-hint">images/student-film-2.jpg</span></div>
-      <div class="ginfo"><h3>Student Film 2</h3><p>Lead Texturing · second completed 3D film</p><div class="tags"><span class="tag">Film</span><span class="tag">Texturing</span></div></div>
-    </div>
-    <!-- Video embed slot -->
-    <div class="gcard">
-      <div class="gthumb" style="align-items:center;justify-content:center;flex-direction:column;gap:.5rem">
-        <div class="ph" style="opacity:.3">▶</div>
-        <p style="font-size:.72rem;color:var(--muted);text-align:center;padding:0 1rem;z-index:2;position:relative">
-          Paste a YouTube embed here<br>
-          <code style="font-size:.65rem;opacity:.6">&lt;iframe src="https://youtube.com/embed/..."&gt;</code>
-        </p>
-      </div>
-      <div class="ginfo"><h3>Showreel</h3><p>Link your YouTube / Vimeo showreel</p><div class="tags"><span class="tag">Reel</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add film stills here</p></div>
-  </div>
-
-  <!-- CONCEPT ART -->
-  <div class="gallery-panel" id="tab-concept">
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">✏️</div><span class="gthumb-hint">images/concept-char.jpg</span></div>
-      <div class="ginfo"><h3>Character Concept</h3><p>Original character design sheet</p><div class="tags"><span class="tag">Character</span><span class="tag">Design</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">🏞️</div><span class="gthumb-hint">images/concept-env.jpg</span></div>
-      <div class="ginfo"><h3>Environment Concept</h3><p>Location study — Anomaly pre-production</p><div class="tags"><span class="tag">Environment</span><span class="tag">Pre-prod</span></div></div>
-    </div>
-    <div class="gcard">
-      <div class="gthumb"><div class="ph">📋</div><span class="gthumb-hint">images/storyboard.jpg</span></div>
-      <div class="ginfo"><h3>Storyboard Sequence</h3><p>Key shot breakdown for short film</p><div class="tags"><span class="tag">Storyboard</span><span class="tag">2D</span></div></div>
-    </div>
-    <div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add concept art here</p></div>
-  </div>
+  <!-- Panels — built automatically from gallery-data.js -->
+  <div class="gallery-panel active" id="tab-all"></div>
+  <div class="gallery-panel" id="tab-texturing"></div>
+  <div class="gallery-panel" id="tab-lighting"></div>
+  <div class="gallery-panel" id="tab-modelling"></div>
+  <div class="gallery-panel" id="tab-films"></div>
+  <div class="gallery-panel" id="tab-concept"></div>
 </section>
 
 <!-- ══ AWARDS ══ -->
@@ -806,6 +689,7 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-si
 
 <footer>© 2026 Divya Krishna B.S · 3D Artist · Mumbai, India</footer>
 
+<script src="gallery-data.js"></script>
 <script>
 /* Starfield */
 (()=>{
@@ -1000,6 +884,36 @@ document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',(
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.09,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
+/* Gallery — built from gallery-data.js */
+function buildGallery(){
+  if(typeof GALLERY==='undefined') return;
+
+  function makeCard(item){
+    const tagsHtml = item.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+    return `<div class="gcard">
+      <div class="gthumb">
+        <img src="images/${item.file}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+      </div>
+      <div class="ginfo">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <div class="tags">${tagsHtml}</div>
+      </div>
+    </div>`;
+  }
+
+  const tabs = ['all','texturing','lighting','modelling','films','concept'];
+  tabs.forEach(tab=>{
+    const panel = document.getElementById('tab-'+tab);
+    if(!panel) return;
+    const items = tab==='all' ? GALLERY : GALLERY.filter(i=>i.tab===tab);
+    panel.innerHTML = items.map(makeCard).join('');
+    if(items.length===0){
+      panel.innerHTML = '<div class="add-card"><div style="font-size:1.5rem;opacity:.3">＋</div><p>Add images in gallery-data.js</p></div>';
+    }
+  });
+}
+
 /* Gallery tabs */
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -1009,6 +923,8 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
   });
 });
+
+buildGallery();
 </script>
 </body>
 </html>
